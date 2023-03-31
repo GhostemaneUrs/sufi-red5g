@@ -1,0 +1,12 @@
+{
+  "disbursements": [
+    {
+      "id": 1,
+      "dni": "1140903322",
+      "typeDni": "Cédula",
+      "amount": "$ 1.000.000",
+      "numberDisbursement": "123A4C",
+      "daytime": "2019-01-01 00:00:00"
+    }
+  ]
+}
