@@ -1,7 +1,7 @@
 module.exports = {
   env: {
-    browser: true,
-    es2021: true
+    es2021: true,
+    browser: true
   },
   extends: [
     'plugin:react/recommended',
@@ -15,5 +15,13 @@ module.exports = {
     project: './tsconfig.json'
   },
   plugins: ['react'],
-  rules: {}
+  rules: {
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/space-before-function-paren': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off'
+  }
 }
