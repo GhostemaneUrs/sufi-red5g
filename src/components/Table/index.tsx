@@ -8,40 +8,37 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
 export const Table: React.FC<TableProps> = ({ headers, data }) => {
   return (
-    <div className='relative'>
-      <div className='overflow-x-auto w-full'>
-        <table className='w-full table-auto'>
-          <thead>
-            <tr>
-              {headers?.length > 0 &&
-                headers?.map((item, index: number) => {
-                  return (
-                    <th
-                      key={`headers ${index}`}
-                      className={`bg-[#F1F6FB] ${item?.className}`}
-                    >
-                      {item?.title}
-                    </th>
-                  )
-                })}
-            </tr>
-          </thead>
-          <tbody>
-            {data?.length > 0 &&
-              data?.map((item, index: number) => {
+    <div className='overflow-x-auto w-full max-h-[calc(100vh-258px)] hide-scrollbar'>
+      <table className='w-full table-auto'>
+        <thead className='sticky top-0'>
+          <tr>
+            {headers?.length > 0 &&
+              headers?.map((item, index: number) => {
                 return (
-                  <RowTable
-                    item={item}
-                    index={index}
-                    headers={headers}
-                    key={`row ${index}`}
-                  />
+                  <th
+                    key={`headers ${index}`}
+                    className={`bg-[#F1F6FB] ${item?.className}`}
+                  >
+                    {item?.title}
+                  </th>
                 )
               })}
-          </tbody>
-        </table>
-      </div>
-      <Pagination skip={1} limit={10} totalRows={20} />
+          </tr>
+        </thead>
+        <tbody>
+          {data?.length > 0 &&
+            data?.map((item, index: number) => {
+              return (
+                <RowTable
+                  item={item}
+                  index={index}
+                  headers={headers}
+                  key={`row ${index}`}
+                />
+              )
+            })}
+        </tbody>
+      </table>
     </div>
   )
 }
@@ -60,7 +57,7 @@ export const RowTable: React.FC<RowProps> = ({ headers, item, index }) => {
                 className={`text-sm text-left border-b border-gray-200 first:pl-[72px] last:pr-[72px] py-4 text-[#8E8E8E]
                       ${key?.dataIndex === 'amount' ? 'font-bold' : ''}`}
               >
-                {item[key?.dataIndex] ? item[key?.dataIndex] : '-'}
+                {item[key?.dataIndex] === 'cc' ? 'Cédula' : item[key?.dataIndex] === 'dni' ? 'DNI' : item[key?.dataIndex]}
               </td>
             )
           }
@@ -70,20 +67,32 @@ export const RowTable: React.FC<RowProps> = ({ headers, item, index }) => {
 }
 
 export const Pagination: React.FC<PaginationProps> = ({
-  skip,
-  limit,
-  totalRows
+  pagination,
+  setPagination
 }) => {
+  const { skip, totalPages, totalRows, limit } = pagination
+  const nextPage = (): void => {
+    if (skip < totalPages) {
+      setPagination({ ...pagination, skip: skip + 1 })
+    }
+  }
+
+  const previousPage = (): void => {
+    if (skip > 1) {
+      setPagination({ ...pagination, skip: skip - 1 })
+    }
+  }
+
   return (
     <div className='absolute bottom-0 w-full flex justify-center'>
-      <div className='bg-white shadow-pagination flex min-w-[508px] px-6 py-4 border solid border-[#ABB9C780] rounded-t-3xl'>
-        <div className='flex gap-4 items-center'>
-          <MdKeyboardArrowLeft className='text-[#DD3542] text-2xl' />
+      <div className='bg-white shadow-pagination flex gap-6 min-w-[508px] px-6 py-4 border solid border-[#ABB9C780] rounded-t-3xl'>
+        <div className='flex gap-2 items-center'>
+          <MdKeyboardArrowLeft className='text-[#DD3542] text-2xl cursor-pointer' onClick={previousPage} />
           <div className='border solid border-[#ABB9C780] rounded-md  flex items-center w-[48px] h-[48px] justify-center'>
             <span className='text-[#414141]'>{skip}</span>
           </div>
-          <span className='text-[#414141]'>de {totalRows}</span>
-          <MdKeyboardArrowRight className='text-[#DD3542] text-2xl' />
+          <span className='text-[#414141]'>de {totalPages}</span>
+          <MdKeyboardArrowRight className='text-[#DD3542] text-2xl cursor-pointer' onClick={nextPage} />
         </div>
         <form noValidate className='w-full max-w-[260px]'>
           <div className='relative w-full max-w-[260px]'>
@@ -91,10 +100,10 @@ export const Pagination: React.FC<PaginationProps> = ({
               id='records'
               name='records'
               placeholder='Registros por página'
-              // value={filter.typeDocument}
-              // onChange={e => {
-              //   setFilter({ ...filter, typeDocument: e.target.value })
-              // }}
+              value={limit}
+              onChange={e => {
+                setPagination({ ...pagination, limit: parseInt(e.target.value) })
+              }}
               className='peer w-full border solid border-[#ABB9C780] rounded-md h-[56px] outline-none placeholder-transparent focus:outline-none text-[#413E4D] text-base px-4 pt-3 appearance-none'
             >
               {Array(totalRows)
@@ -109,7 +118,7 @@ export const Pagination: React.FC<PaginationProps> = ({
             </select>
             <label
               htmlFor='records'
-              className='absolute left-4 top-[5px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
+              className='absolute left-4 text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
             >
               Registros por página
             </label>
