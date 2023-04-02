@@ -1,8 +1,8 @@
 export interface Disbursement {
   id: string
   document: string
-  typeDocument: string
-  daytime: Date | string
+  documentType: string
+  dayTime: Date | string
   amount: string | number
   numberDisbursement: string
 }
