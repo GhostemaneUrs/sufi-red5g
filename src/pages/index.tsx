@@ -52,7 +52,7 @@ const Home = (): JSX.Element => {
           priority
           width={0}
           height={0}
-          alt='Simbols'
+          alt='simbols-two'
           src={simbols}
           className='w-full max-w-[60px] relative bottom-[155px] right-[330px]'
         />
@@ -95,20 +95,15 @@ const Home = (): JSX.Element => {
                 name='email'
                 value={values.email}
                 type='email'
-                onChange={e => {
-                  const res = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-                  if (e.target.value === '' || res.test(e.target.value)) {
-                    handleChangeValues(e)
-                  }
-                }}
+                onChange={handleChangeValues}
                 placeholder='mail@usermail.com'
                 className='peer w-full border solid border-[#ABB9C780] rounded-md h-[56px] outline-none placeholder-transparent focus:outline-none text-[#413E4D] text-base px-4 pt-3'
               />
               <label
                 htmlFor='email'
-                className='absolute left-4 -top-[5x] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
+                className='absolute left-4 top-[6px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:top-[6px] peer-focus:text-[12px]'
               >
-                Usuario
+                Username
               </label>
             </div>
             <div className='relative'>
@@ -116,15 +111,13 @@ const Home = (): JSX.Element => {
                 id='password'
                 name='password'
                 type='password'
-                onChange={e => {
-                  handleChangeValues(e)
-                }}
+                onChange={handleChangeValues}
                 placeholder='••••••••••••'
                 className='peer w-full border solid border-[#ABB9C780] rounded-md h-[56px] outline-none placeholder-transparent focus:outline-none text-[#413E4D] text-base px-4 pt-3'
               />
               <label
                 htmlFor='password'
-                className='absolute left-4 -top-[5x] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
+                className='absolute left-4 top-[8px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:top-[8px] peer-focus:text-[12px]'
               >
                 Contraseña
               </label>
