@@ -1,6 +1,6 @@
-# Test Sufi Red5G
+# Test Sufi Red5G: Gestión de préstamos bancarios en tiempo real
 
-Sufi es un proyecto para desarrollar una aplicación web para la gestión de prestamos bancarios en tiempo real. A continuación se explican las tecnologías utilizadas y las razones por las que se eligieron.
+Bienvenido a Sufi, una aplicación web para la gestión de préstamos bancarios en tiempo real. En esta documentación, encontrará información sobre las tecnologías utilizadas en el proyecto, cómo funciona la aplicación y cómo instalarla.
 
 ## Tecnologías
 
@@ -20,12 +20,21 @@ Sufi es un proyecto para desarrollar una aplicación web para la gestión de pre
 
 ## Funcionamiento del proyecto
 
-Se realizo una api en NextJs para la gestión de prestamos bancarios en tiempo real. La aplicación cuenta con un login para el ingreso de usuarios, una tabla para la visualización de los prestamos y un botón para la exportación de los datos en formato CSV.
+La aplicación Sufi Red5G se basa en una API creada en NextJS para la gestión de préstamos bancarios en tiempo real. Al iniciar sesión, los usuarios pueden acceder a una tabla que muestra los préstamos pendientes y aprobados. También pueden exportar los datos en formato CSV con solo hacer clic en un botón.
+
+## Características del proyecto
+
+Las características principales de la aplicación incluyen:
+
+- Gestión de préstamos bancarios en tiempo real.
+- Inicio de sesión de los usuarios.
+- Visualización de los préstamos pendientes y aprobados.
+- Exportación de datos en formato CSV.
 
 ## Instalación del proyecto
 
 - Se requiere tener instalado [Node.js](https://nodejs.org/) v10+.
-- Clonar el repositorio con el comando git clone + la ruta del proyecto
+- Clonar el repositorio con el comando git clone + la ruta del proyecto.
 - Guía para la instalación de las dependencias para correr el proyecto.
 
 ```sh
@@ -33,6 +42,9 @@ cd sufi-red5g
 yarn
 yarn dev
 ```
+
+- Abrir [http://localhost:3000](http://localhost:3000) con su navegador para ver el resultado.
+- Puede entrar [aquí](https://sufi-red5g.vercel.app/) para ver el proyecto en vivo.
 
 ## Previsualización del proyecto
 
