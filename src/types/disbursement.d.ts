@@ -8,8 +8,9 @@ export interface Disbursement {
 }
 
 export interface DisbursementResponse {
-  skip?: number
-  limit?: number
-  totalRows?: number
-  data: Disbursement[]
+  skip: number
+  limit: number
+  totalRows: number
+  totalPages: number
+  disbursement: Disbursement[]
 }
