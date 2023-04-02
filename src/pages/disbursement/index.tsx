@@ -1,90 +1,26 @@
-import { Table } from '@/component/Table'
+import useSWR from 'swr'
+import { useState, useEffect } from 'react'
 import { Layout } from '@/component/Layout'
 import { useForm } from 'src/hooks/useForm'
 import { Filter } from '@/component/Filter'
 import { TfiDownload } from 'react-icons/tfi'
+import { Pagination, Table } from '@/component/Table'
 
 const Disbursement = (): JSX.Element => {
   const { values, setValues } = useForm({
-    dateEnd: new Date(),
-    dateStart: new Date(),
+    dateEnd: '',
+    dateStart: '',
     document: '',
     typeDocument: '',
     numberDisbursement: ''
   })
 
-  const rows = [
-    {
-      amount: '$ 1.000.000',
-      typeDocument: 'Cédula',
-      document: '1140903322',
-      numberDisbursement: '123A4C',
-      daytime: '2023-04-01T00:25:23.014Z'
-    },
-    {
-      amount: '$ 1.000.000',
-      typeDocument: 'Cédula',
-      document: '1140903322',
-      numberDisbursement: '123A4C',
-      daytime: '2023-04-01T00:25:23.014Z'
-    },
-    {
-      amount: '$ 1.000.000',
-      typeDocument: 'Cédula',
-      document: '1140903322',
-      numberDisbursement: '123A4C',
-      daytime: '2023-04-01T00:25:23.014Z'
-    },
-    {
-      amount: '$ 1.000.000',
-      typeDocument: 'Cédula',
-      document: '1140903322',
-      numberDisbursement: '123A4C',
-      daytime: '2023-04-01T00:25:23.014Z'
-    },
-    {
-      amount: '$ 1.000.000',
-      typeDocument: 'Cédula',
-      document: '1140903322',
-      numberDisbursement: '123A4C',
-      daytime: '2023-04-01T00:25:23.014Z'
-    },
-    {
-      amount: '$ 1.000.000',
-      typeDocument: 'Cédula',
-      document: '1140903322',
-      numberDisbursement: '123A4C',
-      daytime: '2023-04-01T00:25:23.014Z'
-    },
-    {
-      amount: '$ 1.000.000',
-      typeDocument: 'Cédula',
-      document: '1140903322',
-      numberDisbursement: '123A4C',
-      daytime: '2023-04-01T00:25:23.014Z'
-    },
-    {
-      amount: '$ 1.000.000',
-      typeDocument: 'Cédula',
-      document: '1140903322',
-      numberDisbursement: '123A4C',
-      daytime: '2023-04-01T00:25:23.014Z'
-    },
-    {
-      amount: '$ 1.000.000',
-      typeDocument: 'Cédula',
-      document: '1140903322',
-      numberDisbursement: '123A4C',
-      daytime: '2023-04-01T00:25:23.014Z'
-    },
-    {
-      amount: '$ 1.000.000',
-      typeDocument: 'Cédula',
-      document: '1140903322',
-      numberDisbursement: '123A4C',
-      daytime: '2023-04-01T00:25:23.014Z'
-    }
-  ]
+  const [pagination, setPagination] = useState({
+    skip: 1,
+    limit: 10,
+    totalRows: 0,
+    totalPages: 0
+  })
 
   const headers = [
     {
@@ -114,6 +50,22 @@ const Disbursement = (): JSX.Element => {
     }
   ]
 
+  const { data } = useSWR(
+    `/api/disbursement?skip=${pagination.skip}&limit=${pagination.limit}&${new URLSearchParams({ ...values })}`,
+    async (url: string) => await fetch(url).then(async res => await res.json())
+  )
+
+  useEffect(() => {
+    if (data) {
+      setPagination({
+        skip: data.skip,
+        limit: data.limit,
+        totalRows: data.totalRows,
+        totalPages: data.totalPages
+      })
+    }
+  }, [data])
+
   return (
     <Layout>
       <div className='px-[72px] py-[20px] flex justify-between items-center'>
@@ -124,7 +76,10 @@ const Disbursement = (): JSX.Element => {
         </button>
       </div>
       <Filter filter={values} setFilter={setValues} />
-      <Table headers={headers} data={rows} />
+      <Table headers={headers} data={data?.disbursement} />
+      <Pagination pagination={pagination} setPagination={
+        setPagination
+      }/>
     </Layout>
   )
 }
