@@ -21,7 +21,11 @@ export interface TableProps {
 }
 
 export interface PaginationProps {
-  skip: number
-  limit: number
-  totalRows: number
+  pagination: {
+    skip: number
+    limit: number
+    totalRows: number
+    totalPages: number
+  }
+  setPagination: Dispatch<SetStateAction<PaginationProps>>
 }
