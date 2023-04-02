@@ -9,7 +9,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
 export const Table: React.FC<TableProps> = ({ headers, data }) => {
   return (
-    <div className='overflow-x-auto w-full max-h-[calc(100vh-258px)] hide-scrollbar'>
+    <div className='overflow-x-auto w-full max-h-[calc(100vh-258px)] hide-scrollbar pb-[100px]'>
       <table className='w-full table-auto'>
         <thead className='sticky top-0'>
           <tr>
