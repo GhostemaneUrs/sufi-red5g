@@ -1,4 +1,4 @@
-// import moment from 'moment'
+import moment from 'moment'
 import React, { useState } from 'react'
 import { type FormValues } from '@/type/useForm'
 import { type SetStateAction, type Dispatch } from 'react'
@@ -16,21 +16,23 @@ export const Filter: React.FC<FilterProps> = ({ filter, setFilter }) => {
   return (
     <div className='w-full bg-[#FAFAFA] py-4'>
       <form
-        className='flex xl:gap-4 2xl:gap-10 w-full items-center px-[72px]'
         noValidate
+        className='flex gap-4 2xl:gap-10 w-full items-center px-[72px]'
       >
         <div className='relative w-full max-w-[176px]'>
           <select
             id='typeDocument'
             name='typeDocument'
             placeholder='Tipo doc.'
-            // value={filter.typeDocument}
-            // onChange={e => {
-            //   setFilter({ ...filter, typeDocument: e.target.value })
-            // }}
+            value={filter.typeDocument}
+            onChange={e => {
+              setFilter({ ...filter, typeDocument: e.target.value })
+            }}
             className='peer w-full border solid border-[#ABB9C780] rounded-md h-[56px] outline-none placeholder-transparent focus:outline-none text-[#413E4D] text-base px-4 pt-3 appearance-none'
           >
-            <option value=''></option>
+            <option value=''>
+              Tipo doc.
+            </option>
             <option value='dni'>DNI</option>
             <option value='cc'>Cédula</option>
           </select>
@@ -49,22 +51,19 @@ export const Filter: React.FC<FilterProps> = ({ filter, setFilter }) => {
             type='text'
             id='document'
             name='document'
-            // value={filter.document}
-            // onChange={e => {
-            //   const res = /^[a-zA-Z0-9]+$/
-            //   if (e.target.value === '' || res.test(e.target.value)) {
-            //     console.log(
-            //       '🚀 ~ file: index.tsx:23 ~ e.target.value:',
-            //       e.target.value
-            //     )
-            //   }
-            // }}
+            value={filter.document}
+            onChange={e => {
+              const res = /^[a-zA-Z0-9]+$/
+              if (e.target.value === '' || res.test(e.target.value)) {
+                setFilter({ ...filter, document: e.target.value })
+              }
+            }}
             placeholder='Número de documento'
             className='peer w-full border solid border-[#ABB9C780] rounded-md h-[56px] outline-none placeholder-transparent focus:outline-none text-[#413E4D] text-base px-4 pt-3'
           />
           <label
             htmlFor='document'
-            className='absolute left-4 top-[5px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
+            className='absolute left-4 top-[5px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-[12px] xl:peer-placeholder-shown:text-[12px] peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
           >
             Número de documento
           </label>
@@ -74,22 +73,19 @@ export const Filter: React.FC<FilterProps> = ({ filter, setFilter }) => {
             type='text'
             id='numberDisbursement'
             name='numberDisbursement'
-            // value={filter.numberDisbursement}
-            // onChange={e => {
-            //   const res = /^[a-zA-Z0-9]+$/
-            //   if (e.target.value === '' || res.test(e.target.value)) {
-            //     console.log(
-            //       '🚀 ~ file: index.tsx:23 ~ e.target.value:',
-            //       e.target.value
-            //     )
-            //   }
-            // }}
+            value={filter.numberDisbursement}
+            onChange={e => {
+              const res = /^[a-zA-Z0-9]+$/
+              if (e.target.value === '' || res.test(e.target.value)) {
+                setFilter({ ...filter, numberDisbursement: e.target.value })
+              }
+            }}
             placeholder='Número de desembolso'
             className='peer w-full border solid border-[#ABB9C780] rounded-md h-[56px] outline-none placeholder-transparent focus:outline-none text-[#413E4D] text-base px-4 pt-3'
           />
           <label
             htmlFor='numberDisbursement'
-            className='absolute left-4 top-[5px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
+            className='absolute left-4 top-[5px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-sm xl:peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
           >
             Número de desembolso
           </label>
@@ -99,13 +95,10 @@ export const Filter: React.FC<FilterProps> = ({ filter, setFilter }) => {
             type={formatDateStart}
             id='dateStart'
             name='dateStart'
-            // value={moment(filter.dateStart).format('DD-MM-YYYY')}
-            // onChange={e => {
-            //   console.log(
-            //     '🚀 ~ file: index.tsx:23 ~ e.target.value:',
-            //     e.target.value
-            //   )
-            // }}
+            value={moment(filter.dateStart).format('DD-MM-YYYY')}
+            onChange={e => {
+              setFilter({ ...filter, dateStart: e.target.value })
+            }}
             onFocus={() => {
               setFormatDateStart('date')
             }}
@@ -117,7 +110,7 @@ export const Filter: React.FC<FilterProps> = ({ filter, setFilter }) => {
           />
           <label
             htmlFor='dateStart'
-            className='absolute left-4 top-[5px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
+            className='absolute left-4 top-[5px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-sm xl:peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
           >
             Desde
           </label>
@@ -130,13 +123,10 @@ export const Filter: React.FC<FilterProps> = ({ filter, setFilter }) => {
             type={formatDateEnd}
             id='dateEnd'
             name='dateEnd'
-            // value={moment(filter.dateEnd).format('DD-MM-YYYY')}
-            // onChange={e => {
-            //   console.log(
-            //     '🚀 ~ file: index.tsx:23 ~ e.target.value:',
-            //     e.target.value
-            //   )
-            // }}
+            value={moment(filter.dateEnd).format('DD-MM-YYYY')}
+            onChange={e => {
+              setFilter({ ...filter, dateEnd: e.target.value })
+            }}
             onFocus={() => {
               setFormatDateEnd('date')
             }}
@@ -148,7 +138,7 @@ export const Filter: React.FC<FilterProps> = ({ filter, setFilter }) => {
           />
           <label
             htmlFor='dateEnd'
-            className='absolute left-4 top-[5px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
+            className='absolute left-4 top-[5px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-sm xl:peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
           >
             Hasta
           </label>
