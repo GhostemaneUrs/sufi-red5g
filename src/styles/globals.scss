@@ -1,0 +1,70 @@
+@use 'tailwindcss/base';
+@use 'tailwindcss/utilities';
+@use 'tailwindcss/components';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0rem;
+}
+
+.hide-scrollbar::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 0.25rem;
+}
+
+.hide-scrollbar::-moz-scrollbar {
+  width: 0.5rem;
+}
+
+.hide-scrollbar::-moz-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.hide-scrollbar::-moz-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 0.25rem;
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight .8s ease;
+}
+
+.slide-in-left {
+  animation: slideInLeft .8s ease;
+}

@@ -18,7 +18,7 @@
       "@/type/*": ["./src/types/*"],
       "@/page/*": ["./src/pages/*"],
       "@/style/*": ["./src/styles/*"],
-      "@/image/*": ["./src/assets/images/*"],
+      "@/image/*": ["./public/images/*"],
       "@/constant/*": ["./src/constants/*"],
       "@/component/*": ["./src/components/*"]
     },
