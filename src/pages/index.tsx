@@ -1,8 +1,12 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import sufi from '@/image/sufi-logo.svg'
-import { useForm } from 'src/hooks/useForm'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
+import circle from '@/image/circle.svg'
+import sufi from '@/image/sufi-logo.svg'
+import simbols from '@/image/simbols.svg'
+import { useForm } from 'src/hooks/useForm'
+import rectangleTwo from '@/image/rectangle-two.svg'
+import rectangleOne from '@/image/rectangle-one.svg'
 
 const Home = (): JSX.Element => {
   const router = useRouter()
@@ -12,7 +16,67 @@ const Home = (): JSX.Element => {
   })
 
   return (
-    <main className='w-full max-w-[1440px] m-auto flex flex-col justify-content align-center min-h-screen'>
+    <main className='w-full m-auto flex flex-col justify-content align-center min-h-screen relative overflow-hidden'>
+      <div className='absolute top-0 right-0 slide-in-right'>
+        <Image
+          priority
+          width={0}
+          height={0}
+          alt='Rectangle one'
+          src={rectangleTwo}
+          className='w-full max-w-[719px] relative top-[-126px] right-[-333px]'
+        />
+      </div>
+      <div className='absolute bottom-0 left-0 slide-in-left'>
+        <Image
+          priority
+          width={0}
+          height={0}
+          alt='Rectangle two'
+          src={rectangleOne}
+          className='w-full max-w-[719px] relative top-[309px] left-[-147px]'
+        />
+      </div>
+      <div className='absolute top-0 left-0 slide-in-right'>
+        <Image
+          priority
+          width={0}
+          height={0}
+          alt='Simbols'
+          src={simbols}
+          className='w-full max-w-[60px] relative top-[276px] left-[330px]'
+        />
+      </div>
+      <div className='absolute bottom-0 right-0 slide-in-left'>
+        <Image
+          priority
+          width={0}
+          height={0}
+          alt='Simbols'
+          src={simbols}
+          className='w-full max-w-[60px] relative bottom-[155px] right-[330px]'
+        />
+      </div>
+      <div className='absolute bottom-0 right-0 slide-in-right'>
+        <Image
+          priority
+          width={0}
+          height={0}
+          alt='circle-two'
+          src={circle}
+          className='w-full max-w-[8px] relative bottom-[234px] right-[311px]'
+        />
+      </div>
+      <div className='absolute top-0 left-0 slide-in-left'>
+        <Image
+          priority
+          width={0}
+          height={0}
+          alt='circle-one'
+          src={circle}
+          className='w-full max-w-[8px] relative top-[388px] left-[280px]'
+        />
+      </div>
       <div className='w-full max-w-[400px] m-auto flex flex-col justify-center items-center'>
         <div className='mb-8 text-center'>
           <Image priority width={264} height={76} src={sufi} alt='Sufi' />
@@ -73,13 +137,13 @@ const Home = (): JSX.Element => {
           onClick={() => {
             router.push('/disbursement')
           }}
-          className='py-[14px] text-center text-white text-base bg-[#DD3542] rounded-3xl w-full max-w-[174px] uppercase font-bold mb-6'
+          className='py-[14px] text-center z-10 text-white text-base bg-[#DD3542] rounded-3xl w-full max-w-[174px] uppercase font-bold mb-6'
         >
           Ingresar
         </button>
         <Link
           href=''
-          className='text-[12px] text-[#413E4D] underline decoration-[#413E4D]'
+          className='text-[12px] text-[#413E4D] underline decoration-[#413E4D] z-10'
         >
           No recuerdo mi contraseña
         </Link>
