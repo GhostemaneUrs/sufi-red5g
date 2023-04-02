@@ -3,6 +3,7 @@ import {
   type TableProps,
   type PaginationProps
 } from '@/type/table'
+import moment from 'moment'
 import { BsChevronDown } from 'react-icons/bs'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
@@ -57,7 +58,13 @@ export const RowTable: React.FC<RowProps> = ({ headers, item, index }) => {
                 className={`text-sm text-left border-b border-gray-200 first:pl-[72px] last:pr-[72px] py-4 text-[#8E8E8E]
                       ${key?.dataIndex === 'amount' ? 'font-bold' : ''}`}
               >
-                {item[key?.dataIndex] === 'cc' ? 'Cédula' : item[key?.dataIndex] === 'dni' ? 'DNI' : item[key?.dataIndex]}
+                {item[key?.dataIndex] === 'cc'
+                  ? 'Cédula'
+                  : item[key?.dataIndex] === 'dni'
+                  ? 'DNI'
+                  : key?.dataIndex === 'dayTime'
+                  ? moment(item[key?.dataIndex]).format('DD-MM-YYYY 00:00:00')
+                  : item[key?.dataIndex]}
               </td>
             )
           }
@@ -87,12 +94,18 @@ export const Pagination: React.FC<PaginationProps> = ({
     <div className='absolute bottom-0 w-full flex justify-center'>
       <div className='bg-white shadow-pagination flex gap-6 min-w-[508px] px-6 py-4 border solid border-[#ABB9C780] rounded-t-3xl'>
         <div className='flex gap-2 items-center'>
-          <MdKeyboardArrowLeft className='text-[#DD3542] text-2xl cursor-pointer' onClick={previousPage} />
+          <MdKeyboardArrowLeft
+            className='text-[#DD3542] text-2xl cursor-pointer'
+            onClick={previousPage}
+          />
           <div className='border solid border-[#ABB9C780] rounded-md  flex items-center w-[48px] h-[48px] justify-center'>
             <span className='text-[#414141]'>{skip}</span>
           </div>
           <span className='text-[#414141]'>de {totalPages}</span>
-          <MdKeyboardArrowRight className='text-[#DD3542] text-2xl cursor-pointer' onClick={nextPage} />
+          <MdKeyboardArrowRight
+            className='text-[#DD3542] text-2xl cursor-pointer'
+            onClick={nextPage}
+          />
         </div>
         <form noValidate className='w-full max-w-[260px]'>
           <div className='relative w-full max-w-[260px]'>
@@ -102,7 +115,10 @@ export const Pagination: React.FC<PaginationProps> = ({
               placeholder='Registros por página'
               value={limit}
               onChange={e => {
-                setPagination({ ...pagination, limit: parseInt(e.target.value) })
+                setPagination({
+                  ...pagination,
+                  limit: parseInt(e.target.value)
+                })
               }}
               className='peer w-full border solid border-[#ABB9C780] rounded-md h-[56px] outline-none placeholder-transparent focus:outline-none text-[#413E4D] text-base px-4 pt-3 appearance-none'
             >
@@ -118,7 +134,7 @@ export const Pagination: React.FC<PaginationProps> = ({
             </select>
             <label
               htmlFor='records'
-              className='absolute left-4 text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:-top-0 peer-focus:text-[12px]'
+              className='absolute left-4 top-[6px] text-[#ABB9C7] text-[12px] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-[#ABB9C7] peer-placeholder-shown:top-[16px] peer-focus:top-[6px] peer-focus:text-[12px]'
             >
               Registros por página
             </label>
