@@ -1,38 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Test Sufi Red5G
 
-## Getting Started
+Sufi es un proyecto para desarrollar una aplicación web para la gestión de prestamos bancarios en tiempo real. A continuación se explican las tecnologías utilizadas y las razones por las que se eligieron.
 
-First, run the development server:
+## Tecnologías
 
-```bash
-npm run dev
-# or
+- NextJS: fue elegido por su capacidad para pre-renderizar páginas, lo que mejora la velocidad de carga y la experiencia del usuario. También cuenta con un enrutador integrado y optimización de código, lo que lo hace adecuado para proyectos grandes y complejos.
+- Tailwindcss: se utilizó para la maquetación y diseño de estilos del proyecto. Su gran variedad de clases reutilizables facilitó la creación de diseños responsivos y personalizados.
+- Moment: se utilizó para el manejo de fechas y horarios en la aplicación.
+- React CSV: se utilizó para la exportación de archivos CSV en la aplicación. Esta herramienta permitió la generación de archivos CSV de forma rápida y eficiente.
+- Swr: se utilizó para la gestión del estado de la aplicación, lo que permitió una mayor eficiencia en la carga de datos y una mejor gestión de la memoria.
+
+## Documentación de las tecnologías usadas
+
+- [NextJS](https://nextjs.org/docs)
+- [Tailwindcss](https://tailwindcss.com/docs)
+- [Moment](https://momentjs.com/)
+- [React CSV](https://github.com/react-csv/react-csv)
+- [Swr](https://swr.vercel.app/docs/getting-started)
+
+## Funcionamiento del proyecto
+
+Se realizo una api en NextJs para la gestión de prestamos bancarios en tiempo real. La aplicación cuenta con un login para el ingreso de usuarios, una tabla para la visualización de los prestamos y un botón para la exportación de los datos en formato CSV.
+
+## Instalación del proyecto
+
+- Se requiere tener instalado [Node.js](https://nodejs.org/) v10+.
+- Clonar el repositorio con el comando git clone + la ruta del proyecto
+- Guía para la instalación de las dependencias para correr el proyecto.
+
+```sh
+cd sufi-red5g
+yarn
 yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Previsualización del proyecto
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Diseño final de github profile](public/images/design-login.png)
+![Diseño final de github profile](public/images/design-table.png)

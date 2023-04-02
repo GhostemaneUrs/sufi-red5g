@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+import { CSVLink } from 'react-csv'
 import { useState, useEffect } from 'react'
 import { Layout } from '@/component/Layout'
 import { useForm } from 'src/hooks/useForm'
@@ -11,10 +12,11 @@ const Disbursement = (): JSX.Element => {
     dateEnd: '',
     dateStart: '',
     document: '',
-    typeDocument: '',
+    documentType: '',
     numberDisbursement: ''
   })
 
+  const [dbExport, setDbExport] = useState<[]>([])
   const [pagination, setPagination] = useState({
     skip: 1,
     limit: 10,
@@ -25,7 +27,7 @@ const Disbursement = (): JSX.Element => {
   const headers = [
     {
       title: 'Fecha y hora',
-      dataIndex: 'daytime',
+      dataIndex: 'dayTime',
       className: 'text-sm py-4 text-start font-bold text-[#413E4D] pl-[72px]'
     },
     {
@@ -35,7 +37,7 @@ const Disbursement = (): JSX.Element => {
     },
     {
       title: 'Tipo de documento',
-      dataIndex: 'typeDocument',
+      dataIndex: 'documentType',
       className: 'text-sm py-4 text-start font-bold text-[#413E4D]'
     },
     {
@@ -51,7 +53,9 @@ const Disbursement = (): JSX.Element => {
   ]
 
   const { data } = useSWR(
-    `/api/disbursement?skip=${pagination.skip}&limit=${pagination.limit}&${new URLSearchParams({ ...values })}`,
+    `/api/disbursement?skip=${pagination.skip}&limit=${
+      pagination.limit
+    }&${new URLSearchParams({ ...values })}`,
     async (url: string) => await fetch(url).then(async res => await res.json())
   )
 
@@ -66,20 +70,47 @@ const Disbursement = (): JSX.Element => {
     }
   }, [data])
 
+  useEffect(() => {
+    if (data) {
+      const transformData = data?.disbursement.map(
+        (item: Record<string, any>, index: number) => {
+          return {
+            'Fecha y hora': item?.dayTime,
+            'Número de desembolso': item?.numberDisbursement,
+            'Tipo de documento':
+              item?.documentType === 'cc'
+                ? 'Cédula'
+                : item?.documentType === 'dni'
+                ? 'DNI'
+                : item?.documentType,
+            'Número de documento': item?.document,
+            Monto: item?.amount
+          }
+        }
+      )
+      setDbExport(transformData)
+    }
+  }, [data])
+
   return (
     <Layout>
       <div className='px-[72px] py-[20px] flex justify-between items-center'>
         <h1 className='text-[#413E4D] font-bold text-xl'>Mis desembolsos</h1>
-        <button className='flex items-center bg-[#DD3542] text-white py-[14px] w-full max-w-[176px] justify-center gap-3 rounded-3xl font-bold'>
-          <TfiDownload className='text-white text-2xl' />
-          Descargar
-        </button>
+        <CSVLink
+          target='_blank'
+          filename={'desembolsos.csv'}
+          className='w-full max-w-[176px]'
+          data={data ? dbExport : []}
+        >
+          <div className='flex items-center bg-[#DD3542] text-white py-[14px] w-full max-w-[176px] justify-center gap-3 rounded-3xl font-bold'>
+            <TfiDownload className='text-white text-2xl' />
+            Descargar
+          </div>
+        </CSVLink>
       </div>
       <Filter filter={values} setFilter={setValues} />
       <Table headers={headers} data={data?.disbursement} />
-      <Pagination pagination={pagination} setPagination={
-        setPagination
-      }/>
+      <Pagination pagination={pagination} setPagination={setPagination} />
     </Layout>
   )
 }

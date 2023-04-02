@@ -3,162 +3,162 @@
     {
       "id": "1",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "12345",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-14T00:00:00-05:00"
     },
     {
       "id": "2",
       "amount": "$ 50.000.000",
-      "typeDocument": "dni",
+      "documentType": "dni",
       "document": "123",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-13T00:00:00-05:00"
     },
     {
       "id": "3",
       "amount": "$ 50.000.000",
-      "typeDocument": "dni",
+      "documentType": "dni",
       "document": "123",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "4",
       "amount": "$ 50.000.000",
-      "typeDocument": "dni",
+      "documentType": "dni",
       "document": "1140903322",
       "numberDisbursement": "1234A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "5",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "01123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "6",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "08123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "7",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "0987",
       "numberDisbursement": "082123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "8",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "C2123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "9",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "0123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "10",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "11",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "12",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "13",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "14",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "15",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "16",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "17",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "18",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "19",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     },
     {
       "id": "20",
       "amount": "$ 50.000.000",
-      "typeDocument": "cc",
+      "documentType": "cc",
       "document": "1140903322",
       "numberDisbursement": "123A4C",
-      "daytime": "2023-04-01T00:25:23.014Z"
+      "dayTime": "2023-04-06T00:00:00-05:00"
     }
   ]
 }
